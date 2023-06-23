@@ -4,6 +4,7 @@ create table results (
     id int,
     response varchar(255)
 );
+
 --1.
 insert into results
 select 	1 id,(select max(br) mbr from (select b.book_ref, count(passenger_id) br from bookings a join tickets b on a.book_ref = b.book_ref group by b.book_ref) f)  res;
